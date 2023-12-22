@@ -127,10 +127,16 @@ async function seedCustomers() {
 
 async function seedRevenue() {
   try {
+    // Drop the "revenue" table if it exists
+    const dropTable = await sql`
+      DROP TABLE IF EXISTS revenue;
+    `;
+
     // Create the "revenue" table if it doesn't exist
     const createTable = await sql`
       CREATE TABLE IF NOT EXISTS revenue (
         month VARCHAR(4) NOT NULL UNIQUE,
+        month_no INT NOT NULL,
         revenue INT NOT NULL
       );
     `;
@@ -141,8 +147,8 @@ async function seedRevenue() {
     const insertedRevenue = await Promise.all(
       revenue.map(
         (rev) => sql`
-        INSERT INTO revenue (month, revenue)
-        VALUES (${rev.month}, ${rev.revenue})
+        INSERT INTO revenue (month, month_no, revenue)
+        VALUES (${rev.month}, ${rev.month_no}, ${rev.revenue})
         ON CONFLICT (month) DO NOTHING;
       `,
       ),
@@ -151,6 +157,7 @@ async function seedRevenue() {
     console.log(`Seeded ${insertedRevenue.length} revenue`);
 
     return {
+      dropTable,
       createTable,
       revenue: insertedRevenue,
     };

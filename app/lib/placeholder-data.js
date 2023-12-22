@@ -166,18 +166,18 @@ const invoices = [
 ];
 
 const revenue = [
-  { month: 'Jan', revenue: 2000 },
-  { month: 'Feb', revenue: 1800 },
-  { month: 'Mar', revenue: 2200 },
-  { month: 'Apr', revenue: 2500 },
-  { month: 'May', revenue: 2300 },
-  { month: 'Jun', revenue: 3200 },
-  { month: 'Jul', revenue: 3500 },
-  { month: 'Aug', revenue: 3700 },
-  { month: 'Sep', revenue: 2500 },
-  { month: 'Oct', revenue: 2800 },
-  { month: 'Nov', revenue: 3000 },
-  { month: 'Dec', revenue: 4800 },
+  { month: 'Jan', month_no: 1, revenue: 2000 },
+  { month: 'Feb', month_no: 2, revenue: 1800 },
+  { month: 'Mar', month_no: 3, revenue: 2200 },
+  { month: 'Apr', month_no: 4, revenue: 2500 },
+  { month: 'May', month_no: 5, revenue: 2300 },
+  { month: 'Jun', month_no: 6, revenue: 3200 },
+  { month: 'Jul', month_no: 7, revenue: 3500 },
+  { month: 'Aug', month_no: 8, revenue: 3700 },
+  { month: 'Sep', month_no: 9, revenue: 2500 },
+  { month: 'Oct', month_no: 10, revenue: 2800 },
+  { month: 'Nov', month_no: 11, revenue: 3000 },
+  { month: 'Dec', month_no: 12, revenue: 4800 },
 ];
 
 module.exports = {
