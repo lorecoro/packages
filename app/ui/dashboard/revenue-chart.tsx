@@ -1,6 +1,7 @@
 import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { fetchRevenue } from '@/app/lib/data';
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -8,8 +9,8 @@ import { lusitana } from '@/app/ui/fonts';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function RevenueChart(revenueObj) {
-  const { revenue } = revenueObj;
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue();
 
   if (!Array.isArray(revenue)) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
