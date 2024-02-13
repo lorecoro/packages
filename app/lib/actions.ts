@@ -33,6 +33,7 @@ export type State = {
 };
 
 export async function authenticate(prevState: string | undefined, formData: FormData) {
+    "use server";
     try {
         await signIn('credentials', formData);
     }
